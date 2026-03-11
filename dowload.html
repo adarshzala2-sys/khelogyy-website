@@ -449,8 +449,9 @@
         <div class="hero-content">
             <h1>Khelogyy</h1>
             <p>India's #1 Free Fire Tournament App. Join epic battles & win BIG prizes!</p>
-            <a href="#" class="download-btn" onclick="openModal()">
-                <i class="fas fa-download"></i> Download Now
+            <!-- ✅ FIXED: Direct APK download -->
+            <a href="khelogyy.apk" class="download-btn" download>
+                <i class="fas fa-download"></i> Download Now (29MB)
             </a>
         </div>
     </section>
@@ -477,7 +478,7 @@
             <div class="feature-card">
                 <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
                 <h3>Lightweight App</h3>
-                <p>Only 25MB. Works smoothly on all Android devices 5.0+.</p>
+                <p>Only 29MB. Works smoothly on all Android devices 5.0+.</p>
             </div>
         </div>
     </section>
@@ -528,22 +529,23 @@
     </section>
 
     <!-- Floating Download Button -->
-    <div class="floating-btn" onclick="openModal()">
+    <div class="floating-btn" onclick="downloadApp()">
         <i class="fas fa-download"></i>
     </div>
 
     <!-- Download Modal -->
     <div id="downloadModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()" style="font-size: 2.5rem; color: #ff6b6b;">&times;</span>
+            <span class="close" onclick="closeModal()" style="font-size: 2.5rem; color: #ff6b6b; float: right; cursor: pointer;">&times;</span>
             <h2 style="margin-bottom: 1rem;"><i class="fas fa-mobile-alt"></i> Get Khelogyy Now</h2>
             <p style="margin-bottom: 2rem;">Download the #1 Free Fire Tournament App</p>
-            <a href="#" class="download-btn" style="font-size: 1.2rem;">
-                <i class="fas fa-download"></i> Download APK (25MB)
+            <!-- ✅ FIXED: Direct APK download -->
+            <a href="khelogyy.apk" class="download-btn" style="font-size: 1.2rem;" download>
+                <i class="fas fa-download"></i> Download APK (29MB)
             </a>
             <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.85;">
                 ✅ Android 5.0+ Compatible<br>
-                ⚡ 25MB Only | Super Fast
+                ⚡ 29MB Only | Super Fast
             </p>
         </div>
     </div>
@@ -568,6 +570,11 @@
         function toggleMenu() {
             const navMenu = document.querySelector('.nav-menu');
             navMenu.classList.toggle('active');
+        }
+
+        // ✅ NEW: Direct APK download function
+        function downloadApp() {
+            window.location.href = 'khelogyy.apk';
         }
 
         // Modal Functions
@@ -599,11 +606,6 @@
             const modal = document.getElementById('downloadModal');
             if (event.target == modal) closeModal();
         }
-
-        // Prevent body scroll when modal open
-        document.getElementById('downloadModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
     </script>
 </body>
 </html>
